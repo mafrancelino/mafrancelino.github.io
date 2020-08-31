@@ -1,6 +1,105 @@
 @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Josefin+Slab:ital,wght@0,100;0,300;0,400;0,600;0,700;1,100;1,300;1,400;1,600;1,700&family=Mulish:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css");
 
+*{ /*é usado o "*" no lugar de body para aplicar as alteracoes em todo o código */
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-size: 16px;
+}
+
+header{
+    width: 100%;
+    height: 100vh; /*vh é a altura da pagina configurado automaticamente, ou seja, fica responsivo*/
+    overflow: hidden; /*tb para melhorar a responsividade, cabecalho não ultrapassa tamanho da janela, não aparece barra de rolagem*/
+    position: relative;
+}
 
 
+.img-wrapper{
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /*cobre a div, imagem não fica empremida*/
+    background-color: black;
+
+}
+
+/*usar class e não id para ser possivel aproveitar o código*/
+/*torna pagina ajustável*/
+.img-wrapper img{
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+    animation: zoom 25s ;
+}
+
+/*animacao do background*/
+@keyframes zoom {
+    0%{
+        transform: scale(1.5);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
+.banner{
+    position: absolute;
+    top: 29%;
+    left: 15%;    
+}
+
+.banner h1{
+    color: white;
+    font-size: 3.5rem; /*para acessibilidade deixar a unidade de medida como "em" ou ou "rem"  */
+    font-family: "Baloo 2", serif;
+    font-weight: 400;
+    text-shadow: .3rem .4rem 2px rgba(0,0,0,.4);
+    line-height: 3.5rem;
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: moveBanner 1s 0.5s forwards;
+}
+
+.banner p{
+    font-family: "Josefin Slab", serif; 
+    color: white;
+    font-size: 2rem;
+    text-shadow: .2rem .2rem rgba(0,0,0,.4);
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: moveBanner 1s 0.7s forwards;
+}
+
+.banner button{
+    font-family: "Muli", serif; 
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+    background-color: purple;
+    background: #ad5389;  
+    background: #6a3093;  
+    background: -webkit-linear-gradient(to right, #a044ff, #6a3093);
+    background: linear-gradient(to right, #a044ff, #6a3093); 
+    padding: 1rem 3rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    opacity: 0;
+    animation: moveBanner 1s 0.9s forwards;
+}
+
+/* animacao do banner*/
+@keyframes moveBanner{
+    0%{
+        transform: translateY(10rem);
+    }
+    100%{
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
